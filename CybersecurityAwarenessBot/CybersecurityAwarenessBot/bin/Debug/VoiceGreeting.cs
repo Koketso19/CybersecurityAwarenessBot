@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Media; // Required for playing audio
+using System.Media;
 
 namespace CybersecurityAwarenessBot
 {
@@ -9,13 +9,15 @@ namespace CybersecurityAwarenessBot
         {
             try
             {
-                // Make sure you save your .wav file in the project folder and set "Copy to Output Directory" to "Copy if newer"
-                SoundPlayer player = new SoundPlayer("greeting.wav");
-                player.PlaySync(); // PlaySync waits for the audio to finish before continuing
+                // PASTE YOUR COPIED PATH HERE (Inside the quotes)
+                string audioPath = "ttsmaker-file-2026-9-11-9-56-30.wav";
+                SoundPlayer player = new SoundPlayer(audioPath);
+                player.PlaySync();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("[Audio file 'greeting.wav' not found. Continuing without voice greeting.]");
+                Console.WriteLine("[Audio file not found. Error: " + ex.Message + "]");
+                Console.WriteLine("Please check that the path in VoiceGreeting.cs is correct.");
             }
         }
     }
